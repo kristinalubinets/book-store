@@ -12,7 +12,7 @@ ENV POSTGRES_PORT=5432
 WORKDIR /app
 
 # Copy the requirements file to the container
-#COPY requirements.txt requirements.txt
+COPY requirements.txt requirements.txt
 
 # Install dependencies using pip
 RUN pip install -r requirements.txt

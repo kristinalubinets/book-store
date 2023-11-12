@@ -1,16 +1,21 @@
 version: '3'
 services:
-  app:
+  backend:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-backend
     ports:
-      - '8000:8000'
+      - "8000:8000"
     depends_on:
-      - db
-  db:
+      - database
+    volumes:
+      - ./app:/app  # Mount the local 'app' directory into the container
+
+  database:
     image: postgres:latest
     environment:
       POSTGRES_DB: mydatabase
       POSTGRES_USER: myuser
       POSTGRES_PASSWORD: mypassword
+    volumes:
+      - ./pg_data:/var/lib/postgresql/data  # Mount the local 'pg_data' directory into the container

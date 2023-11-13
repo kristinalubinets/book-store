@@ -1,4 +1,4 @@
-version: '3'
+version: '3.9'
 services:
   backend:
     build:
@@ -16,5 +16,10 @@ services:
       POSTGRES_DB: mydatabase
       POSTGRES_USER: myuser
       POSTGRES_PASSWORD: mypassword
+      PGDATA: /var/lib/postgresql/data/book-store/
     volumes:
-      - ./database:/var/lib/postgresql/data  # Mount the local 'database' directory into the container
+      - /var/lib/postgresql/data/book-store/  # Mount the local 'database' directory into the container
+
+volumes:
+  backend:
+  

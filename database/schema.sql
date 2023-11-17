@@ -8,6 +8,16 @@ CREATE TABLE books (
     price DECIMAL(10, 2) NOT NULL
 );
 
+INSERT INTO books (title, author_first_name, author_last_name, genre, publication_year, price)
+VALUES
+    ('The Raven', 'Edgar Allan', 'Poe', 'Poetry', 1845, 9.99),
+    ('The Tell-Tale Heart', 'Edgar Allan', 'Poe', 'Horror', 1843, 11.99),
+    ('The Fall of the House of Usher', 'Edgar Allan', 'Poe', 'Gothic', 1839, 14.99),
+    ('1984', 'George', 'Orwell', 'Dystopian', 1949, 14.99),
+    ('The Great Gatsby', 'F. Scott', 'Fitzgerald', 'Classic', 1925, 12.99),
+    ('The Hobbit', 'J.R.R.', 'Tolkien', 'Fantasy', 1937, 22.99),
+    ('Pride and Prejudice', 'Jane', 'Austen', 'Classic', 1813, 15.99);
+
 CREATE TABLE customers (
     customer_id SERIAL PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,

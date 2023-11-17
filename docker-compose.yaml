@@ -16,10 +16,12 @@ services:
       POSTGRES_DB: mydatabase
       POSTGRES_USER: myuser
       POSTGRES_PASSWORD: mypassword
-      PGDATA: /var/lib/postgresql/data/book-store/
-    volumes:
-      - /var/lib/postgresql/data/book-store/  # Mount the local 'database' directory into the container
+      PGDATA: /var/lib/postgresql/data/book-store/  # Define another default location or subdirectory for database files in container
+    volumes:  # Configure volumes to be mounted into the PostgreSQL container
+      - backend:/var/lib/postgresql/data/book-store/  # Mount the local 'database' directory into the container, failed previously with '/var/lib/postgresql/data folder is not empty',
+      # probably because I've tried to install postgres locally before or because my dir database wasn't empty - it had schema.sgl file
+      # setting env var PGDATA fixed the issue. 
+      # Prev attemt to change volumes dir on '/var/lib/postgresql/data/book-store' without setting PGDATA failed
 
 volumes:
   backend:
-  

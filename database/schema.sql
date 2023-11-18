@@ -36,12 +36,7 @@ CREATE TABLE orders (
     order_id SERIAL PRIMARY KEY,
     customer_id INT REFERENCES customers(customer_id),
     order_date DATE NOT NULL,
-    total_amount DECIMAL(10, 2) NOT NULL
-);
-
-CREATE TABLE order_details (
-    order_detail_id SERIAL PRIMARY KEY,
-    order_id INT REFERENCES orders(order_id),
+    total_amount DECIMAL(10, 2) NOT NULL,
     book_id INT REFERENCES books(book_id),
     quantity INT NOT NULL,
     price DECIMAL(10, 2) NOT NULL

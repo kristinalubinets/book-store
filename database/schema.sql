@@ -27,6 +27,11 @@ CREATE TABLE customers (
     phone_number VARCHAR(15)
 );
 
+INSERT INTO customers (first_name, last_name, email, address, phone_number)
+VALUES
+    ('John', 'Doe', 'john.doe@email.com', '123 Main St', '555-1234'),
+    ('Jane', 'Smith', 'jane.smith@email.com', '456 Oak St', '555-5678');
+
 CREATE TABLE orders (
     order_id SERIAL PRIMARY KEY,
     customer_id INT REFERENCES customers(customer_id),

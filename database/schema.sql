@@ -41,3 +41,9 @@ CREATE TABLE orders (
     quantity INT NOT NULL,
     price DECIMAL(10, 2) NOT NULL
 );
+ 
+INSERT INTO orders (customer_id, order_date, total_amount, book_id, quantity, price)
+VALUES
+    (1, '2023-11-15'::DATE, 21.98, 1, 2, 9.99),  -- Order for 'The Raven' for Customer John Doe
+    (2, '2023-11-15'::DATE, 46.97, 4, 3, 11.99);  -- Order for '1984' for Customer Jane Smith
+   

@@ -8,6 +8,9 @@ from datetime import datetime
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
 
+# Replace these with your actual imports from your SQLAlchemy setup
+# from database import Base, engine, get_db
+
 SQLALCHEMY_DATABASE_URL = "postgresql://myuser:mypassword@database/mydatabase"
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
@@ -15,7 +18,13 @@ Base = declarative_base()
 
 app = FastAPI()
 
-class CustomerDB(Base):
+# while the SQLAlchemy Base class is used for defining database models.
+# should rename to Customer ?
+
+# Used for defining the structure of your database table.
+# Represents the actual data model in your database.
+# SQLAlchemy uses this to create the database table schema.
+class CustomerDB(Base): # (SQLAlchemy Model) - database model
     __tablename__ = "customers"
     customer_id = Column(Integer, primary_key=True, index=True)
     first_name = Column(String, index=True)
@@ -24,7 +33,13 @@ class CustomerDB(Base):
     address = Column(String)
     phone_number = Column(String)
 
-class Customer(BaseModel):
+# In FastAPI the BaseModel class is used for request and response models in your API,
+
+# Used as a Pydantic model for request and response handling in FastAPI.
+# Provides data validation for incoming requests (request validation).
+# Allows FastAPI to automatically generate API documentation based on the model's structure.
+# Used for sending data as a response (response validation).
+class Customer(BaseModel): #  (Pydantic Model) - API model
     customer_id: int
     first_name: str
     last_name: str

@@ -11,6 +11,7 @@ from pydantic import BaseModel
 # Replace these with your actual imports from your SQLAlchemy setup
 # from database import Base, engine, get_db
 
+# defines a connection URL for a PostgreSQL database
 SQLALCHEMY_DATABASE_URL = "postgresql://myuser:mypassword@database/mydatabase"
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

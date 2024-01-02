@@ -1,0 +1,5 @@
+1. Start the containers: book-store-database-1, 
+2. Use 'docker exec -it book-store-database-1 psql -U myuser -d mydatabase' to execute a command within a running container.
+Otherwise, can use Exec of the container in Docker Desktop
+3. To display a table's structure use '\d tablename',
+ use sql command -> 'SELECT * FROM books;' to display values of the table 

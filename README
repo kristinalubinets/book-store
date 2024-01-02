@@ -3,3 +3,5 @@
 Otherwise, can use Exec of the container in Docker Desktop
 3. To display a table's structure use '\d tablename',
  use sql command -> 'SELECT * FROM books;' to display values of the table 
+
+REMEMBER: PostgreSQL is not case sensitive, BUT always requires (;) 

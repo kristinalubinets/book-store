@@ -11,12 +11,15 @@ from pydantic import BaseModel
 # Replace these with your actual imports from your SQLAlchemy setup
 # from database import Base, engine, get_db
 
-# defines a connection URL for a PostgreSQL database providing the necessary information for SQLAlchemy to connect to the database.
-# engine object represents a source of connectivity to a database
+# Defines a connection URL for a PostgreSQL database providing the necessary information for SQLAlchemy to connect to the database
+# The engine object represents a source of connectivity to a database
+# A Session in SQLAlchemy represents a "workspace" for interacting with the database. It allows to perform operations like adding, updating, and querying records
+# In SQLAlchemy, a declarative base class is often used for defining models (database tables) as Python classes
 SQLALCHEMY_DATABASE_URL = "postgresql://myuser:mypassword@database/mydatabase"
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
+# TODO: read more on declarative class
 
 app = FastAPI()
 
